@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import { makeStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -40,7 +41,7 @@ const User = ({
 				autoComplete='off'
 				style={{ paddingLeft: 30 }}>
 				<div>
-					<TextField
+					{/*<TextField
 						fullWidth
 						label='Education'
 						name='education'
@@ -49,20 +50,32 @@ const User = ({
 						onChange={handleChange('education')}
 						margin='normal'
 						required
-					/>
+					/> */}
+					<TextField
+						id='select'
+						label='Education'
+						value={education}
+						onChange={handleChange('education')}
+						select>
+						<MenuItem value='Diploma'>Diploma</MenuItem>
+						<MenuItem value='Graduation'>Graduation</MenuItem>
+						<MenuItem value='Masters'>Masters</MenuItem>
+					</TextField>
 				</div>
 				<br />
 				<div>
 					<TextField
-						fullWidth
+						id='select'
 						label='Course'
-						name='course'
-						placeholder='Your course'
-						defaultValue={course}
+						value={course}
 						onChange={handleChange('course')}
-						margin='normal'
-						required
-					/>
+						select>
+						<MenuItem value='B.Tech/B.E.'>B.Tech/B.E.</MenuItem>
+						<MenuItem value='B.Com'>B.Com</MenuItem>
+						<MenuItem value='B.Arch'>B.Arch</MenuItem>
+						<MenuItem value='MBBS'>MBBS</MenuItem>
+						<MenuItem value='LLB'>LLB</MenuItem>
+					</TextField>
 				</div>
 				<br />
 

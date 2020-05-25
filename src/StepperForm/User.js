@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import { makeStyles } from '@material-ui/core/styles';
+import { DropzoneArea } from 'material-ui-dropzone';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 const User = ({
 	handleNext,
 	handleChange,
+	handleChangeFile,
 	values: { firstName, lastName, email, gender, file },
 	filedError,
 	isError,
@@ -119,11 +121,19 @@ const User = ({
                 Upload
               </Button>
             </label> */}
-					<TextField
+					{/*<TextField
 						name='upload-photo'
 						type='file'
 						//defaultValue={file}
 						onChange={handleChange('file')}
+					/> */}
+					<label htmlFor='contained-button-file' style={{ fontWeight: 'bold' }}>
+						Upload File
+					</label>{' '}
+					<br />
+					<DropzoneArea
+						style={{ height: '10px', width: '30%' }}
+						onChange={handleChangeFile}
 					/>
 				</div>
 			</form>

@@ -46,6 +46,7 @@ export default function StepperForm() {
 		date: '',
 		city: '',
 		phone: '',
+		files: [],
 		education: '',
 		course: '',
 		specialization: '',
@@ -109,7 +110,10 @@ export default function StepperForm() {
 		setActiveStep(0);
 		setCompleted({});
 	}; */
-
+	const handleChangeFile = (files) => (event) => {
+		const name = event.target.name;
+		this.setState({ [name]: files });
+	};
 	const handleChange = (input) => ({ target: { value } }) => {
 		// Set values to the fields
 		setFields({
@@ -166,6 +170,7 @@ export default function StepperForm() {
 					<User
 						handleNext={handleNext}
 						handleChange={handleChange}
+						handleChangeFile={handleChangeFile}
 						values={fields}
 						isError={isError}
 						filedError={filedError}
